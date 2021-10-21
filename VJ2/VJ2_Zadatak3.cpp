@@ -3,7 +3,7 @@ using namespace std;
 
 struct circle
 {
-    int S, r;
+    int s1, s2, r;
 };
 
 struct rectangle
@@ -12,12 +12,24 @@ struct rectangle
     int x2, y2;
 };
 
-int intersect(rectangle &r, circle *c, int a)
+void intersect(const struct &r, circle &c, int a)
 {
+    cout << "Enter the center and radius of circle";
+    cin >> c.s1 >> c.s2 >> c.r;
+    cout << endl;
+    cout << "Enter the amount of rectangles you want to input: ";
+    cin >> a;
+    //input rectangle points
+    for (int i = 0; i < a; i++)
+    {
+        cout << endl;
+        cout << "Enter points for " << i << ". rectangle: ";
+        cin >> r[i].x1 >> r[i].y1 >> r[i].x2 >> r[i].y2;
+    }
     //check intersect
     for (int i = 0; i < a; i++)
     {
-        if (r.x1 <a)
+        if (r[i].x1 - c.s1)
         {
 
         }
@@ -26,22 +38,11 @@ int intersect(rectangle &r, circle *c, int a)
 
 int main()
 {
-    circle* c;
-    rectangle* r;
     int a;
-    cout << "Enter the center and radius of circle";
-    cin >> c->S >> c->r;
-    cout << endl;
+    circle c;
     cout << "Enter the amount of rectangles you want to input: ";
     cin >> a;
-    //dynamic
-    int *r = new int[a];
-    //input rectangle points
-    for (int i = 0; i < a; i++)
-    {
-        cout << endl;
-        cout << "Enter points for " << i << ". rectangle: ";
-        cin >> r->x1 >> r->y1 >> r->x2 >> r->y2;
-    }
+    rectangle r[a];
+    intersect(r[a], c, a);
     system("pause");
 }
