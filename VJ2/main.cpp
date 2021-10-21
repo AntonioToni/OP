@@ -1,14 +1,20 @@
+
 #include "vector.hpp"
+#include<algorithm>
+#include <vector>
 using namespace std;
 int main() 
 {
     MyVector mv;
-    mv.vector_new();
+    size_t n;
+    cout << "Unesite velicinu: ";
+    cin >> mv.capacity;
+    mv.vector_new(mv.capacity);
     
-    int m;
     cout << "Unesi element, Ctrl+d (linux) ili Ctrl+z (win) za kraj unosa" << endl;
-    while(cin >> m)
-        mv.vector_push_back(m);
+    mv.size = 0;
+    while(cin >> n)
+        mv.vector_push_back(n);
     
     cout << "first element " << mv.vector_front() << endl;
     cout << "last element " << mv.vector_back() << endl;
