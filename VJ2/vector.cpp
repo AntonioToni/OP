@@ -25,6 +25,7 @@ void MyVector::vector_push_back(int n)
 }
 void MyVector::vector_pop_back()
 {
+    arr[size -1] = NULL;
     size--;
 }
 int& MyVector::vector_front()
