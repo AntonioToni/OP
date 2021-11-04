@@ -12,6 +12,7 @@ void sorter(vector<string> &v)
     for(int i = 0; i < n; i++)
     {
         cin >> str;
+        reverse(str.begin(),str.end());
         v.push_back(str);
     }
     sort(v.begin(),v.end());
