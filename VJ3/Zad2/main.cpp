@@ -1,5 +1,5 @@
 #include "header.hpp"
-#include "Zad1funk.cpp"
+#include "funk.cpp"
 
 void vec3(vector<int> &v1, vector<int> &v2, vector<int> &v3, int n)
 {
