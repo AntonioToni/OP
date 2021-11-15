@@ -1,5 +1,5 @@
 #include "header.hpp"
-#include "Zad1funk.cpp"
+#include "funk.cpp"
 
 void del(vector<int> &v, vector<int>:: iterator i)
 {
