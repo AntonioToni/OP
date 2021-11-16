@@ -1,4 +1,6 @@
-#include "header.hpp"
+#include <iostream>
+
+using namespace std;
 
 int substr(string str, string sub)
 {
