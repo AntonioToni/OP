@@ -10,19 +10,11 @@ void input(vector<int> &v1, int n)
 	}
 }
 
-void input2(vector<int> &v2, int a, int b)
-{
-	int x;
-	while (cin >> x, x > a && x < b)
-	{
-		v2.push_back(x);
-	}
-}
-
 void output(vector<int> &v)
 {
 	for (int i = 0; i < v.size(); i++)
 	{
 		cout << v.at(i)<< " ";
 	}
+	cout << endl;
 }
