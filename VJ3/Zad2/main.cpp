@@ -23,11 +23,13 @@ void vec3(vector<int> &v1, vector<int> &v2, vector<int> &v3, int n)
 
 int main()
 {
-    int n;
+	int n;
 	vector<int>v1, v2, v3;
-    cout << "How many numbers do you want to enter? ";
+    	cout << "How many numbers do you want to enter? ";
 	cin >> n;
 	input(v1, n);
 	input(v2, n);
+    	output(v1);
+    	output(v2);
 	vec3(v1, v2, v3, n);
 }
