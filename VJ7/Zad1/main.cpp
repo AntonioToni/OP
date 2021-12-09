@@ -9,23 +9,41 @@ struct Point
 
 class Board
 {
-    public:
-        char** matrix;
-        int row, col;
-        char edge;
-        Board() = default;
-        Board(int x, int y, char e); //constructor declaration
-        Board(const Board & other); //copy declaration
-        ~Board(); //destructor declaration
-        void draw_char(Point p, char ch);
-        void display();
-        void draw_up_line(Point p1, char ch);
-        void draw_line(Point p2, Point p3, char ch);
+public:
+    char** matrix;
+    int row, col;
+    char edge;
+    Board() = default;
+    Board(int x, int y, char e); //constructor declaration
+    Board(const Board& other); //copy declaration
+    Board(Board&& obj); //move
+    ~Board(); //destructor declaration
+    void draw_char(Point p, char ch);
+    void display();
+    void draw_up_line(Point p1, char ch);
+    void draw_line(Point p2, Point p3, char ch);
 };
 
-Board::Board(const Board & other) //copy
+Board::Board(const Board& other) //copy
 {
     memcpy(this, &other, sizeof(Board));
+}
+
+Board::Board(Board&& obj) 
+{
+    matrix = new char* [obj.row];
+
+    for (int i = 0; i < row; i++) 
+    {
+        matrix[i] = new char[obj.col];
+    }
+
+    for (int i = 0; i < row; i++) 
+    {
+        delete obj.matrix[i];
+    }
+
+    delete obj.matrix;
 }
 
 Board::Board(int x, int y, char e) //constructor
@@ -42,7 +60,7 @@ Board::Board(int x, int y, char e) //constructor
     {
         for (int j = 0; j < col; j++)
         {
-            if (i == 0 || i == row - 1 || j == 0 || j == col-1)
+            if (i == 0 || i == row - 1 || j == 0 || j == col - 1)
             {
                 matrix[i][j] = edge;
             }
@@ -56,7 +74,7 @@ Board::Board(int x, int y, char e) //constructor
 
 Board::~Board() //destructor
 {
-    for(int i = 0; i < row; i++) 
+    for (int i = 0; i < row; i++)
     {
         delete matrix[i];
     }
@@ -98,13 +116,13 @@ void Board::draw_line(Point p2, Point p3, char ch)
     int x2 = p3.x;
     int y1 = p2.y;
     int y2 = p3.y;
-    if (x1==x2)
+    if (x1 == x2)
     {
         if (y1 > y2)
         {
             int temp = y1;
             y1 = y2;
-            y2= temp;
+            y2 = temp;
         }
         while (y1 <= y2)
         {
@@ -162,7 +180,7 @@ void Board::draw_line(Point p2, Point p3, char ch)
                 matrix[y1][x1] = ch;
                 x1--;
                 y1++;
-            } 
+            }
         }
     }
 }
@@ -178,8 +196,8 @@ int main()
     cin >> e;
     Board b(x, y, e);
     Point p, p1, p2, p3;
-    p.x=1;
-    p.y=3;
+    p.x = 1;
+    p.y = 3;
     b.draw_char(p, 'x');
     p1.x = 4;
     p1.y = 8;
@@ -188,6 +206,6 @@ int main()
     p3.x = 5;
     p2.y = 5;
     p3.y = 2;
-    b.draw_line(p2,p3, 'L');
+    b.draw_line(p2, p3, 'L');
     b.display();
 }
