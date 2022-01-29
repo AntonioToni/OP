@@ -11,9 +11,6 @@ int main()
     minmax(vector);
     removelowerthan300(vector);
     sort(vector.begin(), vector.end(), greater<int>());
-    for (int i = 0; i < vector.size(); i++)
-    {
-        cout << vector.at(i) << endl;
-    }
+    printvector(vector);
     system("pause");
 }

@@ -49,3 +49,11 @@ void removelowerthan300(vector<int> &vector)
 {
     vector.erase(remove_if(vector.begin(), vector.end(), [](int i) {return i < 300; }), vector.end());
 }
+
+void printvector(vector<int> vector)
+{
+    for (int i = 0; i < vector.size(); i++)
+    {
+        cout << vector.at(i) << endl;
+    }
+}

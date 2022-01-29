@@ -11,3 +11,4 @@ void fillvector(ifstream &numbers, vector<int> &vector);
 int countover500(vector<int> vector);
 void minmax(vector <int> vector);
 void removelowerthan300(vector<int> &vector);
+void printvector(vector<int> vector);
